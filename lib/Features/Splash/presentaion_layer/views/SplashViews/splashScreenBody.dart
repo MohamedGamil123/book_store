@@ -21,12 +21,12 @@ class _splashScreenBodyState extends State<splashScreenBody>
   }
 
   void InitSlidingAnimation() {
-     controller =
-        AnimationController(duration: const Duration(seconds: 2), vsync: this);
+    controller =
+        AnimationController(duration: const Duration(seconds: 1), vsync: this);
     textanimation = Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
         .animate(controller);
     imageanimation =
-        Tween<Offset>(begin: const Offset(0, -0.2), end: Offset.zero)
+        Tween<Offset>(begin: const Offset(0, -0.3), end: Offset.zero)
             .animate(controller);
     controller.forward();
   }

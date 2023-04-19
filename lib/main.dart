@@ -1,4 +1,5 @@
 import 'package:book_store/Core/utilits/Constants/backgroundColor.dart';
+import 'package:book_store/Features/HomeScreen/presentaion/view/HomeScreen.dart';
 import 'package:book_store/Features/Splash/presentaion_layer/views/SplashViews/splashScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,6 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData.dark().copyWith( scaffoldBackgroundColor: kprimaryColor),
          
-        home: const splashScreen());
+        home: const HomeScreen());
   }
 }

@@ -1,10 +1,11 @@
 import 'package:book_store/Core/utilits/Constants/backgroundColor.dart';
-import 'package:book_store/Features/HomeScreen/presentaion/view/HomeScreen.dart';
-import 'package:book_store/Features/Splash/presentaion_layer/views/SplashViews/splashScreen.dart';
+import 'package:book_store/Features/BookDetails/Presentaion_Layer/View/Book_Details_Screen.dart';
+import 'package:book_store/Features/HomeScreen/Presentaion_Layer/view/HomeScreen.dart';
+import 'package:book_store/Features/Splash/Presentaion_Layer/views/SplashViews/splashScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-
   runApp(const MyApp());
 }
 
@@ -14,10 +15,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        routes: {
+          HomeScreen.homeScreen: (context) => const HomeScreen(),
+          Book_Details.book_Details: (context) => const Book_Details(),
+        },
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData.dark().copyWith( scaffoldBackgroundColor: kprimaryColor),
-         
-        home: const HomeScreen());
+        theme: ThemeData.dark().copyWith(
+            scaffoldBackgroundColor: kprimaryColor,
+            textTheme:
+                GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)),
+        home: const splashScreen());
   }
 }

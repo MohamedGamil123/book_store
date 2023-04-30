@@ -1,5 +1,6 @@
 import 'package:book_store/Core/utilits/assetsManager/assets.dart';
-import 'package:book_store/Features/Splash/presentaion_layer/views/SplashViews/LinearAnimation.dart';
+import 'package:book_store/Features/HomeScreen/Presentaion_Layer/view/HomeScreen.dart';
+import 'package:book_store/Features/Splash/Presentaion_Layer/views/SplashViews/LinearAnimation.dart';
 import 'package:flutter/material.dart';
 
 class splashScreenBody extends StatefulWidget {
@@ -17,12 +18,16 @@ class _splashScreenBodyState extends State<splashScreenBody>
   @override
   void initState() {
     InitSlidingAnimation();
+    Future.delayed(const Duration(seconds: 2), () async {
+      Navigator.of(context).pushReplacementNamed(HomeScreen.homeScreen);
+    });
+
     super.initState();
   }
 
   void InitSlidingAnimation() {
     controller =
-        AnimationController(duration: const Duration(seconds: 1), vsync: this);
+        AnimationController(duration: const Duration(seconds: 2), vsync: this);
     textanimation = Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
         .animate(controller);
     imageanimation =

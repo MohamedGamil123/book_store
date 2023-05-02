@@ -9,14 +9,14 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Text(
             "Book Haven",
             style: TextStyle(
-                color: Colors.white60,
+                color: Colors.white ,
                 fontSize: 23,
                 fontWeight: FontWeight.bold),
           ),

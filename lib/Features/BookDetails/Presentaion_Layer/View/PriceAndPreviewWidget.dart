@@ -1,3 +1,4 @@
+import 'package:book_store/Core/utilits/Constants/AppColors.dart';
 import 'package:book_store/Core/utilits/Constants/Styles.dart';
 import 'package:book_store/Features/BookDetails/Presentaion_Layer/View/ContainerWithCenterText.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class PriceAndPreviewWidget extends StatelessWidget {
       ),
       ContainerWithCenterText(
         size: size,
-        color: Colors.orange,
+        color: kpreviewWidgetColor,
         isWhiteContainer: false,
         widget: const Text(
           "Free Preview",

@@ -1,5 +1,5 @@
 import 'package:book_store/Core/utilits/Constants/Styles.dart';
-import 'package:book_store/Core/utilits/Constants/backgroundColor.dart';
+import 'package:book_store/Core/utilits/Constants/AppColors.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -26,7 +26,7 @@ class Rating_Widget extends StatelessWidget {
         ),
         const Text(
           "4.8",
-          style: Styles.textStyle16,
+          style: Styles.textStyle14,
         ),
         SizedBox(
           width: size.width * 0.02,

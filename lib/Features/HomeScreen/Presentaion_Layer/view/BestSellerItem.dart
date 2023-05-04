@@ -32,19 +32,6 @@ class BestSellerItem extends StatelessWidget {
                 child: Container(
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
-                      // boxShadow: [
-                      //   BoxShadow(
-                      //       color: Colors.grey,
-                      //       blurRadius: 10,
-                      //       offset: Offset(2, 2),
-                      //       spreadRadius: -3)
-                      // ],
-                      // gradient: LinearGradient(
-                      //   colors: [Colors.white, Colors.black54],
-                      //   begin: Alignment.topCenter,
-                      //   end: Alignment.bottomCenter,
-                      //   stops: [0.2, 0.7],
-                      // ),
                       image: DecorationImage(
                         // opacity: 0.6,
                         image:
@@ -67,21 +54,22 @@ class BestSellerItem extends StatelessWidget {
                         width: size.width * 0.6,
                         child: const Text(
                           "Harry Potter and the Goblet of Fire ",
-                          style: Styles.textStyle20,
+                          style: Styles.textStyle18,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                       Text(
+                      Text(
                         "J.K. Rowling",
-                        style: Styles.textStyle14.copyWith(color: Colors.white70),
+                        style:
+                            Styles.textStyle14.copyWith(color: Colors.white70),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(
                             "19.99 " r"$",
-                            style: Styles.textStyle16,
+                            style: Styles.textStyle14,
                           ),
                           Rating_Widget(
                             size: size,

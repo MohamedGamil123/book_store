@@ -12,7 +12,7 @@ class AnimatedAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      curve: Curves.linear,
+        curve: Curves.linear,
         height: appBarHeight,
         duration: const Duration(milliseconds: 150),
         child: const HomeAppBar());

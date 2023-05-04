@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.all(15),
                   child: Text(
                     "Best Seller",
-                    style: Styles.textStyle18,
+                    style: Styles.textStyle20,
                   ),
                 ),
                 VerticalListView(size: size),

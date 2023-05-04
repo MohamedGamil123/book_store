@@ -1,3 +1,4 @@
+import 'package:book_store/Core/utilits/Constants/Styles.dart';
 import 'package:book_store/Core/utilits/assetsManager/assets.dart';
 import 'package:book_store/Features/HomeScreen/Presentaion_Layer/view/HomeScreen.dart';
 import 'package:book_store/Features/Splash/Presentaion_Layer/views/SplashViews/LinearAnimation.dart';
@@ -51,11 +52,7 @@ class _splashScreenBodyState extends State<splashScreenBody>
           animation: imageanimation,
           widget: Image.asset(AsstetsManager.logo),
         ),
-        const Text(
-          "Book Haven",
-          style: TextStyle(
-              color: Colors.white60, fontSize: 45, fontWeight: FontWeight.bold),
-        ),
+        Text("Book Haven", style: Styles.appName.copyWith(fontSize: 40)),
         CustomLinearAnimation(
           animation: textanimation,
           widget: Container(

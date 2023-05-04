@@ -1,4 +1,6 @@
+import 'package:book_store/Core/utilits/Constants/Styles.dart';
 import 'package:book_store/Core/utilits/assetsManager/assets.dart';
+import 'package:book_store/Features/SearchScreen/Presentaion_Layer/View/SearchScreen.dart';
 import 'package:flutter/material.dart';
 
 class HomeAppBar extends StatelessWidget {
@@ -13,14 +15,12 @@ class HomeAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            "Book Haven",
-            style: TextStyle(
-                color: Colors.white ,
-                fontSize: 23,
-                fontWeight: FontWeight.bold),
-          ),
-          Image.asset(AsstetsManager.searchIconLight, height: 35),
+          const Text("Book Haven", style: Styles.appName),
+          InkWell(
+              onTap: () {
+                Navigator.of(context).pushNamed(SearchScreen.searchScreen);
+              },
+              child: Image.asset(AsstetsManager.searchIconLight, height: 35)),
         ],
       ),
     );

@@ -8,8 +8,10 @@ class BestSellerItem extends StatelessWidget {
     super.key,
     required this.size,
     required this.onTap,
+    required this.imageUrl, required this.tittle,
   });
-
+  final String tittle;
+  final String imageUrl;
   final Size size;
   VoidCallback onTap;
   @override
@@ -30,12 +32,18 @@ class BestSellerItem extends StatelessWidget {
               AspectRatio(
                 aspectRatio: 2.5 / 4,
                 child: Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(15)),
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 10,
+                            offset: Offset(2, 2),
+                            spreadRadius: -3)
+                      ],
                       image: DecorationImage(
                         // opacity: 0.6,
-                        image:
-                            AssetImage(AsstetsManager.bestSellerbookbackground),
+                        image: NetworkImage(imageUrl),
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -52,8 +60,8 @@ class BestSellerItem extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: size.width * 0.6,
-                        child: const Text(
-                          "Harry Potter and the Goblet of Fire ",
+                        child: Text(
+                          tittle,
                           style: Styles.textStyle18,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,

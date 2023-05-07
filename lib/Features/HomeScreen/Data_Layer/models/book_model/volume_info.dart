@@ -4,36 +4,36 @@ import 'image_links.dart';
 import 'reading_modes.dart';
 
 class VolumeInfo extends Equatable {
-  final String? title;
+  final String title;
   final String? publishedDate;
   final String? description;
   final ReadingModes? readingModes;
-  final int? pageCount;
+ final int? pageCount;
   final String? printType;
-  final int? averageRating;
+ // final double? averageRating;
   final int? ratingsCount;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
-  final ImageLinks? imageLinks;
+  final ImageLinks imageLinks;
   final String? language;
   final String? previewLink;
   final String? infoLink;
   final String? canonicalVolumeLink;
 
   const VolumeInfo({
-    this.title,
+   required this.title,
     this.publishedDate,
     this.description,
     this.readingModes,
-    this.pageCount,
+this.pageCount,
     this.printType,
-    this.averageRating,
+   // this.averageRating,
     this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
-    this.imageLinks,
+    required this.imageLinks,
     this.language,
     this.previewLink,
     this.infoLink,
@@ -41,23 +41,21 @@ class VolumeInfo extends Equatable {
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
-        title: json['title'] as String?,
+        title: json['title'] as String,
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
         readingModes: json['readingModes'] == null
             ? null
             : ReadingModes.fromJson(
                 json['readingModes'] as Map<String, dynamic>),
-        pageCount: json['pageCount'] as int?,
+       pageCount: json['pageCount'] as int,
         printType: json['printType'] as String?,
-        averageRating: json['averageRating'] as int?,
+       // averageRating: json['averageRating']as double ,
         ratingsCount: json['ratingsCount'] as int?,
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,
-        imageLinks: json['imageLinks'] == null
-            ? null
-            : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
+        imageLinks:ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
         language: json['language'] as String?,
         previewLink: json['previewLink'] as String?,
         infoLink: json['infoLink'] as String?,
@@ -69,14 +67,14 @@ class VolumeInfo extends Equatable {
         'publishedDate': publishedDate,
         'description': description,
         'readingModes': readingModes?.toJson(),
-        'pageCount': pageCount,
+       'pageCount': pageCount,
         'printType': printType,
-        'averageRating': averageRating,
+     //   'averageRating': averageRating,
         'ratingsCount': ratingsCount,
         'maturityRating': maturityRating,
         'allowAnonLogging': allowAnonLogging,
         'contentVersion': contentVersion,
-        'imageLinks': imageLinks?.toJson(),
+        'imageLinks': imageLinks.toJson(),
         'language': language,
         'previewLink': previewLink,
         'infoLink': infoLink,
@@ -90,9 +88,9 @@ class VolumeInfo extends Equatable {
       publishedDate,
       description,
       readingModes,
-      pageCount,
+pageCount,
       printType,
-      averageRating,
+    //  averageRating,
       ratingsCount,
       maturityRating,
       allowAnonLogging,

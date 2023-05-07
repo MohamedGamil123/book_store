@@ -48,7 +48,8 @@ class Book_Details extends StatelessWidget {
                 ),
                 Expanded(
                     child: SimilarBooksWidget(
-                        size: size, book_Details: book_Details))
+                  size: size,
+                ))
               ],
             )),
           )

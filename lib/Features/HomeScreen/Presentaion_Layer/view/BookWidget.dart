@@ -2,13 +2,15 @@ import 'package:book_store/Core/utilits/assetsManager/assets.dart';
 import 'package:flutter/material.dart';
 
 class BookWidget extends StatelessWidget {
-  const BookWidget({
+   BookWidget({
     super.key,
     required this.size,
+    required this.imageUrl,
+    
   });
-
+  final String imageUrl;
   final Size size;
-
+ 
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,9 +18,9 @@ class BookWidget extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: 3 / 5,
         child: Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-              boxShadow: [
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+              boxShadow: const [
                 BoxShadow(
                     color: Colors.grey,
                     blurRadius: 10,
@@ -33,7 +35,7 @@ class BookWidget extends StatelessWidget {
               // ),
               image: DecorationImage(
                 // opacity: 0.6,
-                image: AssetImage(AsstetsManager.bookbackground),
+                image: NetworkImage(imageUrl),
                 fit: BoxFit.fill,
               ),
             ),

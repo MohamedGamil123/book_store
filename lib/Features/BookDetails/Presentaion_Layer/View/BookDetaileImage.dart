@@ -14,6 +14,7 @@ class BookDetaileImage extends StatelessWidget {
     return SizedBox(
         height: size.height * 0.32,
         child: BookWidget(
+          imageUrl:"https://dcist.com/wp-content/uploads/sites/3/2022/12/IMG_7380-1500x1125.jpg" ,
           size: size,
         ));
   }

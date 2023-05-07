@@ -3,6 +3,6 @@ import 'package:book_store/Features/HomeScreen/Data_Layer/models/book_model/book
 import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
-  Future<Either<Failure, List<BookModel>>> fetchNewestBooks();
   Future<Either<Failure, List<BookModel>>> fetchFeatcherdBooks();
+  Future<Either<Failure, List<BookModel>>> fetchNewestBooks();
 }

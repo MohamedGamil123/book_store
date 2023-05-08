@@ -1,32 +1,28 @@
+import 'package:book_store/Core/CustomWidgets/CustomShimmer.dart';
 import 'package:flutter/material.dart';
 
 class LoadinWidget extends StatelessWidget {
-  const LoadinWidget({
+   LoadinWidget({
     super.key,
     required this.size,
+    required this.height,
+    required this.width,
+    required this.shape,
   });
-
+  double height;
+  double width;
+  ShapeBorder shape;
   final Size size;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: AspectRatio(
-        aspectRatio: 3 / 5,
-        child: Container(
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 10,
-                      offset: Offset(2, 2),
-                      spreadRadius: -3)
-                ],
-                color: Colors.grey),
-            child: const SizedBox()),
-      ),
+      child: CustomShimmer.circular(
+          height:height,
+          width: width,
+          shape:
+              shape),
     );
   }
 }

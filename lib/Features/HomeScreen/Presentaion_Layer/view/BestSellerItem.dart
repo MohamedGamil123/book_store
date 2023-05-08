@@ -1,6 +1,7 @@
 import 'package:book_store/Core/utilits/Constants/Styles.dart';
-import 'package:book_store/Core/utilits/assetsManager/assets.dart';
+
 import 'package:book_store/Features/HomeScreen/Presentaion_Layer/view/Rating_Widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerItem extends StatelessWidget {
@@ -8,10 +9,13 @@ class BestSellerItem extends StatelessWidget {
     super.key,
     required this.size,
     required this.onTap,
-    required this.imageUrl, required this.tittle,
+    required this.imageUrl,
+    required this.tittle,
+    required this.authors,
   });
   final String tittle;
   final String imageUrl;
+  final String authors;
   final Size size;
   VoidCallback onTap;
   @override
@@ -29,25 +33,18 @@ class BestSellerItem extends StatelessWidget {
           width: double.infinity,
           child: Row(
             children: [
-              AspectRatio(
-                aspectRatio: 2.5 / 4,
-                child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(15)),
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Colors.grey,
-                            blurRadius: 10,
-                            offset: Offset(2, 2),
-                            spreadRadius: -3)
-                      ],
-                      image: DecorationImage(
-                        // opacity: 0.6,
-                        image: NetworkImage(imageUrl),
-                        fit: BoxFit.fill,
-                      ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AspectRatio(
+                  aspectRatio: 2.5 / 4,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: CachedNetworkImage(
+                      imageUrl: imageUrl,
+                      fit: BoxFit.fill,
                     ),
-                    child: const SizedBox()),
+                  ),
+                ),
               ),
               Expanded(
                 child: Container(
@@ -68,7 +65,7 @@ class BestSellerItem extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "J.K. Rowling",
+                        authors,
                         style:
                             Styles.textStyle14.copyWith(color: Colors.white70),
                       ),
@@ -76,7 +73,7 @@ class BestSellerItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(
-                            "19.99 " r"$",
+                            "Free",
                             style: Styles.textStyle14,
                           ),
                           Rating_Widget(

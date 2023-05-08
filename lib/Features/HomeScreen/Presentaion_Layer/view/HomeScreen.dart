@@ -18,6 +18,12 @@ class _HomeScreenState extends State<HomeScreen> {
   ScrollController scrollcontroller = ScrollController();
   double appBarHeight = kToolbarHeight;
   @override
+  void dispose() {
+    scrollcontroller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     scrollcontroller.addListener(
       () {
@@ -35,40 +41,39 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       },
     );
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: CustomScrollView(
-
-        shrinkWrap: true,
-        controller:scrollcontroller ,
-        slivers: [
-        SliverToBoxAdapter(child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              
-              AnimatedAppBar(appBarHeight: appBarHeight),
-              SizedBox(
-                  height: size.height * 0.32,
-                  child: FeaturedListView(
-                    size: size,
-                  )),
-              const SizedBox(
-                height: 20,
+        body: ListView(
+      physics: const BouncingScrollPhysics(
+          decelerationRate: ScrollDecelerationRate.fast),
+      controller: scrollcontroller,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AnimatedAppBar(appBarHeight: appBarHeight),
+            SizedBox(
+                height: size.height * 0.3,
+                child: FeaturedListView(
+                  size: size,
+                )),
+            const SizedBox(
+              height: 30,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: Text(
+                "New Books",
+                style: Styles.textStyle20,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                child: Text(
-                  "New Books",
-                  style: Styles.textStyle20,
-                ),
-              ),
-             
-            ],
-          ),
-        ),),
-         SliverToBoxAdapter(child: VerticalListView(size: size,))
-      ],)
-    );
+            ),
+            VerticalListView(
+              size: size,
+            )
+          ],
+        ),
+      ],
+    ));
   }
 }

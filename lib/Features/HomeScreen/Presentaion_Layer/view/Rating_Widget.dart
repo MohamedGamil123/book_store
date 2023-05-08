@@ -7,10 +7,12 @@ class Rating_Widget extends StatelessWidget {
   Rating_Widget({
     super.key,
     required this.size,
-    required this.mainAxisAlignment,
+    required this.mainAxisAlignment, this.averageRating, this.ratingsCount,
   });
 
   final Size size;
+  final double? averageRating;
+  final int? ratingsCount;
   MainAxisAlignment mainAxisAlignment;
   @override
   Widget build(BuildContext context) {
@@ -24,15 +26,15 @@ class Rating_Widget extends StatelessWidget {
         SizedBox(
           width: size.width * 0.02,
         ),
-        const Text(
-          "4.8",
+         Text(
+         averageRating==null?"(4.0)":averageRating.toString(),
           style: Styles.textStyle14,
         ),
         SizedBox(
           width: size.width * 0.02,
         ),
         Text(
-          "(2390)",
+         ratingsCount==null?"3.2k":ratingsCount.toString(),
           style: Styles.textStyle14.copyWith(color: Colors.grey),
         )
       ]),

@@ -9,11 +9,11 @@ class Home_Repo_imp implements HomeRepo {
   final Base_Api_Service? base_Api_Service;
 
   Home_Repo_imp({this.base_Api_Service});
- @override
+  @override
   Future<Either<Failure, List<BookModel>>> fetchFeatcherdBooks() async {
     try {
-      var data = await base_Api_Service!
-          .getResponse(endPoint: "volumes?q=الكون&Filtering=free-ebooks&orderBy=newest");
+      var data = await base_Api_Service!.getResponse(
+          endPoint: "volumes?q=المستقبل&Filtering=free-ebooks&orderBy=newest");
       List<BookModel> books = [];
       for (var item in data["items"]) {
         books.add(BookModel.fromJson(item));
@@ -45,6 +45,4 @@ class Home_Repo_imp implements HomeRepo {
       return left(ServerFailure(message: e.toString()));
     }
   }
-
- 
 }

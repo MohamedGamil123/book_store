@@ -5,12 +5,13 @@ import 'reading_modes.dart';
 
 class VolumeInfo extends Equatable {
   final String title;
+  final String? publisher;
   final String? publishedDate;
   final String? description;
   final ReadingModes? readingModes;
- final int? pageCount;
+  final int? pageCount;
   final String? printType;
- // final double? averageRating;
+  final int? averageRating;
   final int? ratingsCount;
   final String? maturityRating;
   final bool? allowAnonLogging;
@@ -20,46 +21,50 @@ class VolumeInfo extends Equatable {
   final String? previewLink;
   final String? infoLink;
   final String? canonicalVolumeLink;
-
-  const VolumeInfo({
-   required this.title,
-    this.publishedDate,
-    this.description,
-    this.readingModes,
-this.pageCount,
-    this.printType,
-   // this.averageRating,
-    this.ratingsCount,
-    this.maturityRating,
-    this.allowAnonLogging,
-    this.contentVersion,
-    required this.imageLinks,
-    this.language,
-    this.previewLink,
-    this.infoLink,
-    this.canonicalVolumeLink,
-  });
+  final List<dynamic>? authors;
+  const VolumeInfo(
+      {required this.title,
+      this.publishedDate,
+      this.publisher, 
+      this.description,
+      this.readingModes,
+      this.pageCount,
+      this.printType,
+      this.averageRating,
+      this.ratingsCount,
+      this.maturityRating,
+      this.allowAnonLogging,
+      this.contentVersion,
+      required this.imageLinks,
+      this.language,
+      this.previewLink,
+      this.infoLink,
+      this.canonicalVolumeLink,
+      this.authors});
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String,
+        publisher: json['publisher'] as String,
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
         readingModes: json['readingModes'] == null
             ? null
             : ReadingModes.fromJson(
                 json['readingModes'] as Map<String, dynamic>),
-       pageCount: json['pageCount'] as int,
+        pageCount: json['pageCount'] as int,
         printType: json['printType'] as String?,
-       // averageRating: json['averageRating']as double ,
+         averageRating: json['averageRating']as int? ,
         ratingsCount: json['ratingsCount'] as int?,
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,
-        imageLinks:ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
+        imageLinks:
+            ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
         language: json['language'] as String?,
         previewLink: json['previewLink'] as String?,
         infoLink: json['infoLink'] as String?,
         canonicalVolumeLink: json['canonicalVolumeLink'] as String?,
+        authors: json["authors"] ,
       );
 
   Map<String, dynamic> toJson() => {
@@ -67,9 +72,9 @@ this.pageCount,
         'publishedDate': publishedDate,
         'description': description,
         'readingModes': readingModes?.toJson(),
-       'pageCount': pageCount,
+        'pageCount': pageCount,
         'printType': printType,
-     //   'averageRating': averageRating,
+        'averageRating': averageRating,
         'ratingsCount': ratingsCount,
         'maturityRating': maturityRating,
         'allowAnonLogging': allowAnonLogging,
@@ -79,6 +84,8 @@ this.pageCount,
         'previewLink': previewLink,
         'infoLink': infoLink,
         'canonicalVolumeLink': canonicalVolumeLink,
+        "authors": authors,
+        "publisher, ": publisher,
       };
 
   @override
@@ -88,9 +95,9 @@ this.pageCount,
       publishedDate,
       description,
       readingModes,
-pageCount,
+      pageCount,
       printType,
-    //  averageRating,
+        averageRating,
       ratingsCount,
       maturityRating,
       allowAnonLogging,
@@ -100,6 +107,8 @@ pageCount,
       previewLink,
       infoLink,
       canonicalVolumeLink,
+      authors,
+      publisher
     ];
   }
 }

@@ -27,6 +27,7 @@ class VerticalListView extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return BestSellerItem(
                 tittle: state.newbookList[index].volumeInfo.title,
+                authors:  state.newbookList[index].volumeInfo.publisher?? state.newbookList[index].volumeInfo.authors![0].toString(),
                 imageUrl:
                     state.newbookList[index].volumeInfo.imageLinks.thumbnail,
                 size: size,
@@ -40,11 +41,16 @@ class VerticalListView extends StatelessWidget {
           return Center(child: Text(state.errMessage));
         } else {
           return ListView.builder(
-            scrollDirection: Axis.horizontal,
+            
             shrinkWrap: true,
+             physics: const NeverScrollableScrollPhysics(),
             itemCount: 5,
             itemBuilder: (BuildContext context, int index) {
               return LoadinWidget(
+                 height: size.height * 0.14,
+          width: double.infinity,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                 size: size,
               );
             },
